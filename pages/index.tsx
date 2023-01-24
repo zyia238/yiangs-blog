@@ -1,11 +1,10 @@
+import Home from "@/components/Hero/Hero.component"
+
 type Props = {}
 
 const index = (props: Props) => {
   return (
-    // <div>index</div>
-    <div style={{height:'2000px'}}>
-
-    </div>
+    <Home />
   )
 }
 
