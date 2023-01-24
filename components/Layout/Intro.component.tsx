@@ -1,34 +1,24 @@
-import { useEffect } from 'react'
+import { FC, useEffect , useContext} from 'react'
 
 import Image from 'next/image'
 
 import DropdownTabs from '../../components/DropdownTabs/DropdownTabs.component'
 
 import {rollText} from '../../utils/rollText'
+import { ContentType } from '@/types/Intro.types'
+import { IntroContext } from '@/context/Intro.context'
 
-const content = [
-    {
-        title:'Favourite Anmies',
-        emoji:'📺',
-        content:'星际牛仔、强风吹拂、碧蓝之海、银魂、排球少年、CyberPunk:Edge Runner、乒乓、家庭教师、钢之炼金术师、俺物语、龙与虎、JOJO、MEGALOBOX、男子高中生的日常、齐木楠雄的灾难、幻界战线、四月是你的谎言'
-    },
-    {
-        title:'Highest MMR DOTA2',
-        emoji:'😎',
-        content:'7060 no kidding'
-    },
-    {
-        title:'Favourite PC games',
-        emoji:'🎮',
-        content:'Dota2、Elden Rings、Celeste、HearthStone、Tunic、Terraria'
-    },
-    
-]
+export interface IntroProps {
+    jsonData:Array<ContentType>
+}
 
-const Intro = () => {
+const Intro : FC<IntroProps> = ({jsonData}) => {
     useEffect(()=>{
 	    rollText()
     },[])
+
+    const {introData} = useContext(IntroContext) 
+
     return (
         <div className='m-box flex-1 rounded-md shadow-md shadow-[#d4d4d5]'>
             <div >
@@ -56,12 +46,20 @@ const Intro = () => {
                 </svg>
 					</a>
                 </div>
-                <DropdownTabs {...content[0]}/>
-                <DropdownTabs {...content[1]}/>
-                <DropdownTabs {...content[2]}/>
+                {
+                    introData && (
+                    <>
+                        <DropdownTabs {...introData[0]}/>
+                        <DropdownTabs {...introData[1]}/>
+                        <DropdownTabs {...introData[2]}/>
+                    </>
+                    )
+                }
             </div>
         </div>
     )
 }
+
+
 
 export default Intro

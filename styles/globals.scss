@@ -157,14 +157,18 @@ html{
 
 .showMore {
     position: absolute;
-    width: 100px;
+    width: 100vw;
     bottom: 150px;
     left: 0;
     right: 0;
-    margin: auto;
     font-size: 26px;
     z-index: 100;
     user-select:none;
+    svg{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-30px);
+    }
 }
 
 .arrow {
