@@ -49,7 +49,7 @@ const Home = () => {
         })
     }
 
-    const ImageClassNames = `w-[110vw] h-[100vh] absolute ease-in duration-75`
+    const ImageClassNames = `w-[110vw] h-[100vh] absolute`
 
     return (
         <>
@@ -81,8 +81,8 @@ const Home = () => {
                 <div className='showMore'>
                     <BsArrowDownCircle onClick={handleShowMore} className="arrow"/>
                 </div>
-                <Image src={require('@/assets/wave1.webp')} alt="wave-1" className='wave' width={400} height={90}/>
-                <Image src={require('@/assets/wave2.webp')} alt="wave-2" className='wave' width={400} height={90} priority/>
+                <Image src={require('@/assets/wave1.webp')} alt="wave-1" className='wave' width={600} />
+                <Image src={require('@/assets/wave2.webp')} alt="wave-2" className='wave' width={600}  priority/>
             </section>
         </>
     )

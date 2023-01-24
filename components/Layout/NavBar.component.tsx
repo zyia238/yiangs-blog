@@ -6,10 +6,9 @@ import NavItem from "../NavBar/NavItem"
 import { AiOutlineBulb, AiOutlineFile, AiOutlineHome, AiOutlineMessage , AiOutlineUser , AiOutlineBars} from "react-icons/ai";
 
 interface NarvBarProps {
-    children:React.ReactNode
 }
 
-const NavBar : FC<NarvBarProps> = ({children}) => {
+const NavBar : FC<NarvBarProps> = () => {
   const [isHavingBg , setIsHavingBg] = useState<boolean>(false)
   const [isNavToggled , setIsNavToggled] = useState<boolean>(false)
   useEffect(()=>{
@@ -57,9 +56,6 @@ const NavBar : FC<NarvBarProps> = ({children}) => {
 
             </div>
         </header>
-        <main>
-            {children}
-        </main>
     </>
   )
 }

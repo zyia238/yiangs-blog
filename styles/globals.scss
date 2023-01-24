@@ -13,6 +13,20 @@ body {
     overflow-x: hidden;
 }
 
+// global css
+.m-box {
+    transition: all 0.25s ease 0s, opacity 0.6s cubic-bezier(0.5, 0, 0, 1) 0s !important;
+}
+
+.m-box:hover {
+    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.2), 0 2px 4px 0px rgba(0, 0, 0, 0.2), 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 8px 16px 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+html{
+    --borderColor:1px solid rgba(34, 36, 38, .1);
+}
+
+// Hero styles
 .dancing-line {
     position: absolute;
     width: 160px;
@@ -173,3 +187,39 @@ body {
         opacity:1
     }
 }
+
+// Material UI styles change
+.accordion {
+    .MuiAccordion-root.Mui-expanded {
+        margin: 0 !important;
+    }
+
+    .MuiAccordion-root:before {
+        height: 0 !important;
+    }
+
+    .MuiAccordion-root{
+        box-shadow: none;
+        border-top: var(--borderColor);
+        // border-top: 1px solid rgba(34, 36, 38, .1);
+        border-radius: 0!important;
+    }
+
+    .MuiAccordionSummary-root,.MuiAccordionSummary-root.Mui-expanded{
+        min-height: 0;
+    }
+
+    .MuiAccordionSummary-content.Mui-expanded{
+        margin: 12px 0;
+    }
+
+    .MuiTypography-root {
+        font-size: 0.7222rem !important;
+        padding: 0 0.8899rem !important;
+        box-shadow: none;
+        border: 0;
+    }
+    .MuiAccordionSummary-root{
+        padding: 0;
+    }
+} 
