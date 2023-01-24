@@ -1,9 +1,10 @@
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { GetStaticProps } from 'next'
 import { join } from 'path'
 import { readFile } from 'fs/promises'
 import { ContentType } from '@/types/Intro.types'
 import { IntroContext } from '@/context/Intro.context'
+import BlogList from '@/components/BlogList/BlogList.component'
 
 
 type Props = {
@@ -11,13 +12,29 @@ type Props = {
 }
 
 const index = ({jsonData}: Props) => {
+  const [blogs , setBlogs] = useState([])
   const {setIntroData} = useContext(IntroContext)
   useEffect(()=>{
     setIntroData(jsonData)
   },[jsonData])
+
+  useEffect(()=>{
+    fetch('/api/blogs',{
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      setBlogs(data.result)
+    })
+  },[])
   
   return (
-    <div></div>
+    <>
+      <BlogList BlogsData={blogs}/>
+    </>
   )
 }
 

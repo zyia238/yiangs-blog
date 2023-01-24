@@ -1,5 +1,6 @@
 import { FC , useEffect, useState} from "react"
 import Link from "next/link"
+import { useSession, signIn, signOut } from "next-auth/react"
 
 import NavItem from "../NavBar/NavItem"
 
@@ -46,6 +47,9 @@ const NavBar : FC<NarvBarProps> = () => {
                 <div className="text-lg sm:hidden block text-white px-4 cursor-pointer" onClick={()=>{setIsNavToggled(!isNavToggled)}}>
                     <AiOutlineBars />
                 </div>
+                <div className="text-lg block text-white px-4 cursor-pointer" onClick={()=>{signIn('credentials', { redirect: false, name: 'test' , email:'test@test.com'})}}>
+                    Sign in
+                </div>
                 {isNavToggled && (<nav className="fixed top-12 bg-black w-full hidden space-y-4 pl-4 max-sm:flex flex-col pb-2 ease-in duration-300">
                     <NavItem icon={ <AiOutlineHome/> } title='Home'/>
                     <NavItem icon={ <AiOutlineBulb/>} title='Categories'/>
@@ -53,7 +57,7 @@ const NavBar : FC<NarvBarProps> = () => {
                     <NavItem icon={ <AiOutlineMessage/>} title='Activities'/>
                     <NavItem icon={ <AiOutlineUser/>} title='About'/>
                 </nav>)}
-
+                
             </div>
         </header>
     </>

@@ -18,13 +18,11 @@ const Layout = ({children}: Props) => {
           {router.pathname === '/' ? <Hero /> : null}
         </section>
         <main className={`flex my-4 mx-auto items-start w-[1400px]`}>
-            <Intro />
+            <Intro/>
               <section className="w-[62.5%] my-0 mx-4">
                 {children}
               </section>
-            {/* <Aside/> */}
-            <Intro />
-
+            <Aside/>
         </main>
     </div>
   )

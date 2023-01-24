@@ -79,7 +79,7 @@ const Home = () => {
                 />
                 <DancingTitle />
                 <div className='showMore'>
-                    <BsArrowDownCircle onClick={handleShowMore} className="arrow"/>
+                    <BsArrowDownCircle onClick={handleShowMore} className="arrowIcon"/>
                 </div>
                 <Image src={require('@/assets/wave1.webp')} alt="wave-1" className='wave' width={600} />
                 <Image src={require('@/assets/wave2.webp')} alt="wave-2" className='wave' width={600}  priority/>

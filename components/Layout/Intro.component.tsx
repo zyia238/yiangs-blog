@@ -4,15 +4,13 @@ import Image from 'next/image'
 
 import DropdownTabs from '../../components/DropdownTabs/DropdownTabs.component'
 
-import {rollText} from '../../utils/rollText'
-import { ContentType } from '@/types/Intro.types'
+import {rollText} from '../../utils/rollText.util'
 import { IntroContext } from '@/context/Intro.context'
 
 export interface IntroProps {
-    jsonData:Array<ContentType>
 }
 
-const Intro : FC<IntroProps> = ({jsonData}) => {
+const Intro : FC<IntroProps> = () => {
     useEffect(()=>{
 	    rollText()
     },[])
