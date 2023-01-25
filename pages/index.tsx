@@ -14,26 +14,34 @@ type Props = {
 const index = ({jsonData}: Props) => {
   const [blogs , setBlogs] = useState([])
   const {setIntroData} = useContext(IntroContext)
+  const [isLoading,setIsLoading] = useState(true)
+
   useEffect(()=>{
     setIntroData(jsonData)
   },[jsonData])
 
   useEffect(()=>{
-    fetch('/api/blogs',{
-      method:'GET',
-      headers:{
-        'Content-Type':'application/json'
-      }
-    }).then(res => {
-      return res.json()
-    }).then(data => {
-      setBlogs(data.result)
-    })
+    setIsLoading(true)
+    try{
+      fetch('/api/blogs',{
+        method:'GET',
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }).then(res => {
+        return res.json()
+      }).then(data => {
+        setBlogs(data.result)
+        setIsLoading(false)
+      })
+    }catch{
+      setIsLoading(false)
+    }
   },[])
   
   return (
     <>
-      <BlogList BlogsData={blogs}/>
+      <BlogList BlogsData={blogs} isLoading={isLoading}/>
     </>
   )
 }

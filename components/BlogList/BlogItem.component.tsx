@@ -7,14 +7,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 type Props = {
-    content:string
+    content:string,
+    _id:string,
+    isShowingDetail:boolean
 }
 
 interface MetaType{
     [key: string]: any;
 }
 
-const BlogItem = ({content}: Props) => {
+const BlogItem = ({content,_id,isShowingDetail}: Props) => {
   const [meta ,setMeta] = useState<MetaType>({})
   const [mdContent , setMdContent] = useState('')
   useEffect(()=>{
@@ -26,7 +28,7 @@ const BlogItem = ({content}: Props) => {
   const router = useRouter()
 
   const handleBlogItemClicked = () => {
-    router.push(`/blog/${meta.id}`)
+    router.push(`/blogs/${_id}`)
   }
 
   return (<article className='m-box p-4 shadow-xl' onClick={handleBlogItemClicked}>
@@ -38,7 +40,7 @@ const BlogItem = ({content}: Props) => {
           {meta.description}
         </p>
         <Image src={`/images/${meta.image}`} alt="thumbnails" width={400} height={200}/>
-        {/* <ReactMarkdown 
+        { isShowingDetail && <ReactMarkdown 
          components={{
           code({node, inline, className, children, style, ...props}) {
             const match = /language-(\w+)/.exec(className || '')
@@ -59,7 +61,8 @@ const BlogItem = ({content}: Props) => {
             )
           }
         }}
-        >{mdContent}</ReactMarkdown> */}
+        >{mdContent}</ReactMarkdown>
+      }
     </article>
   )
 }

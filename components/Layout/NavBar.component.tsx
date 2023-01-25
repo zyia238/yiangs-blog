@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import NavItem from "../NavBar/NavItem"
 
 import { AiOutlineBulb, AiOutlineFile, AiOutlineHome, AiOutlineMessage , AiOutlineUser , AiOutlineBars} from "react-icons/ai";
+import { useRouter } from "next/router";
 
 interface NarvBarProps {
 }
@@ -12,12 +13,15 @@ interface NarvBarProps {
 const NavBar : FC<NarvBarProps> = () => {
   const [isHavingBg , setIsHavingBg] = useState<boolean>(false)
   const [isNavToggled , setIsNavToggled] = useState<boolean>(false)
+  const router =  useRouter()
   useEffect(()=>{
     const handler = ()=>{
-        if(window.scrollY > window.outerHeight / 2){
+        if(window.scrollY > window.outerHeight / 2 && router.pathname === '/'){
             setIsHavingBg(true)
-        }else{
+        }else if(window.scrollY < window.outerHeight / 2 && router.pathname === '/'){
             setIsHavingBg(false)
+        }else if(router.pathname !== '/'){
+            setIsHavingBg(true)
         }
     }
     window.addEventListener('scroll', handler)
