@@ -17,18 +17,26 @@ export const rollText = () => {
         return String.fromCharCode(94 * Math.random() + 33)
     }
     // @ts-ignore
+    // eslint-disable-next-line
     function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-            let l = document.createElement("span")
-            // eslint-disable-next-line
-            l.textContent = e(), l.style.color = t(), n.appendChild(l)
+        if(r){
+            for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
+                let l = document.createElement("span")
+                // eslint-disable-next-line
+                l.textContent = e(), l.style.color = t(), n.appendChild(l)
+            }
+            return n
         }
-        return n
+        
     }
     function i() {
         let t = o[c.skillI]
+        if(r){
+              // @ts-ignore
         // eslint-disable-next-line
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+            c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+        }
+        
     }
     i()
 }

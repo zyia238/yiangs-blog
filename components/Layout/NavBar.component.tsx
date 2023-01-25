@@ -38,7 +38,7 @@ const NavBar : FC<NarvBarProps> = () => {
             <div className="flex items-center justify-between max-sm:w-full">
                 <Link href="/">
                     <div className="text-[#48dbfb] text-lg px-4 whitespace-nowrap cursor-pointer">
-                        Yiang Zhou's Blog
+                        Yiang Zhou&nbsp;s Blog
                     </div>
                 </Link>
                 <nav className="sm:flex hidden">

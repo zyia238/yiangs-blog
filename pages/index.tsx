@@ -11,7 +11,7 @@ type Props = {
   jsonData:Array<ContentType>
 }
 
-const index = ({jsonData}: Props) => {
+const Index = ({jsonData}: Props) => {
   const [blogs , setBlogs] = useState([])
   const {setIntroData} = useContext(IntroContext)
   const [isLoading,setIsLoading] = useState(true)
@@ -58,4 +58,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 }
 
-export default index
+export default Index
