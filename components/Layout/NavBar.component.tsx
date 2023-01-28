@@ -29,8 +29,7 @@ const NavBar : FC<NarvBarProps> = () => {
     return () => {
         window.removeEventListener('scroll', handler)
     }
-
-  },[])
+  },[router])
 
   return (
     <>
@@ -42,7 +41,6 @@ const NavBar : FC<NarvBarProps> = () => {
                     </div>
                 </Link>
                 <nav className="sm:flex hidden">
-                    <NavItem icon={ <AiOutlineHome/> } title='Home'/>
                     <NavItem icon={ <AiOutlineBulb/>} title='Categories'/>
                     <NavItem icon={ <AiOutlineFile/>} title='Archives'/>
                     <NavItem icon={ <AiOutlineMessage/>} title='Activities'/>
@@ -55,7 +53,6 @@ const NavBar : FC<NarvBarProps> = () => {
                     Sign in
                 </div>
                 {isNavToggled && (<nav className="fixed top-12 bg-black w-full hidden space-y-4 pl-4 max-sm:flex flex-col pb-2 ease-in duration-300">
-                    <NavItem icon={ <AiOutlineHome/> } title='Home'/>
                     <NavItem icon={ <AiOutlineBulb/>} title='Categories'/>
                     <NavItem icon={ <AiOutlineFile/>} title='Archives'/>
                     <NavItem icon={ <AiOutlineMessage/>} title='Activities'/>
