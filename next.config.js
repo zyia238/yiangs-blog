@@ -6,6 +6,17 @@ const nextConfig = {
 
     return config;
   }
+  ,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'avatars.akamai.steamstatic.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
