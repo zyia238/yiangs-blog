@@ -14,24 +14,32 @@ const BlogDetailPage = (props: Props) => {
     isShowingDetail:true
   })
   const router = useRouter()
+  const {blogId} = router.query
+  console.log(blogId,'blogId')
   
   useEffect(()=>{
-    const {blogId} = router.query  
-    fetch(`/api/blogs/${blogId}`,{
-      method:'POST',
-      body:JSON.stringify({_id:blogId}),
-      headers:{
-        'Content-Type':'application/json'
-      }
-    }).then(res=>{
-      return res.json()
-    }).then(data => {
-      setBlogItemData(data.result)
-    })
+    if(blogId){
+      fetch(`/api/blogs/${blogId}`,{
+        method:'GET',
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }).then(res=>{
+        return res.json()
+      }).then(data => {
+        setBlogItemData(data.result)
+      })
+    }
   },[])
   return (
     <BlogItem {...blogItemData} isShowingDetail={true}/>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
 }
 
 export default BlogDetailPage

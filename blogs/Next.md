@@ -4,7 +4,7 @@ image: '1.jpg'
 excerpt: 'Next.js notes'
 date: 2023/1/22
 slug: 'Next'
-isFeatured: true
+
 ---
 # Next.js
 

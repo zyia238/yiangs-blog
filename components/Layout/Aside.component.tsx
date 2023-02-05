@@ -53,6 +53,9 @@ const Aside = (props: Props) => {
   }, []);
   return (
     <div className="m-box flex-1 rounded-md shadow-md shadow-[#d4d4d5] p-2">
+      <div className="text-center">
+        My Dota2 Track Board
+      </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <img

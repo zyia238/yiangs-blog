@@ -35,7 +35,7 @@ const BlogItem = ({ content, _id, isShowingDetail }: Props) => {
   };
 
   return (
-    <article className="m-box p-4 shadow-xl w-full relative">
+    <article className="m-box p-4 shadow-xl w-full relative mb-4">
       <h2
         className="text-2xl cursor-pointer hover:text-3xl transition-all duration-75 h-6 text-center flex justify-center"
         onClick={handleBlogItemClicked}
